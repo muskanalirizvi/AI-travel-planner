@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+google_calendar_credentials.json
+google_calendar_token.json
+
+# Frontend
+frontend/.env
+frontend/dist/
+frontend/node_modules/

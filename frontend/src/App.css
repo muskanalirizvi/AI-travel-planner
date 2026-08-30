@@ -1,0 +1,241 @@
+.chat-app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 700px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  border-right: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.chat-header .title-icon {
+  font-size: 1.1rem;
+}
+
+.back-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.chat-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #0f2540;
+}
+
+.message-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.message-row {
+  display: flex;
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-row.assistant {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.06);
+}
+
+.message-row.user .message-bubble {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #fff;
+}
+
+.message-row.assistant .message-bubble {
+  background: rgba(255, 255, 255, 0.85);
+  color: #1e293b;
+}
+
+.markdown-content > *:first-child {
+  margin-top: 0;
+}
+
+.markdown-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-content p {
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.markdown-content strong {
+  color: #0f2540;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  margin: 12px 0 6px;
+  color: #0f2540;
+  line-height: 1.3;
+}
+
+.markdown-content h1 {
+  font-size: 1.2rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.1rem;
+}
+
+.markdown-content h3 {
+  font-size: 1rem;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 0 0 8px;
+  padding-left: 20px;
+}
+
+.markdown-content li {
+  margin-bottom: 4px;
+}
+
+.markdown-content code {
+  background: rgba(37, 99, 235, 0.08);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.85em;
+}
+
+.markdown-content a {
+  color: #2563eb;
+}
+
+.typing-bubble {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 16px;
+}
+
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #93a5c4;
+  animation: typing-bounce 1.2s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 4px;
+}
+
+.suggestion-chip {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: rgba(255, 255, 255, 0.7);
+  color: #1d4ed8;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.suggestion-chip:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(37, 99, 235, 0.45);
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.composer textarea {
+  flex: 1;
+  resize: none;
+  padding: 10px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: 10px;
+  font: inherit;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111827;
+}
+
+.composer textarea:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 1px;
+}
+
+.composer button {
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.composer button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}

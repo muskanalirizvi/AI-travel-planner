@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: ai-travel-planner
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: GOOGLE_MODEL
+        value: gemini-3.5-flash-lite
+      - key: GOOGLE_CALENDAR_TOKEN_FILE
+        value: /etc/secrets/google_calendar_token.json
+      - key: GOOGLE_CALENDAR_TIMEZONE
+        value: UTC
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DB
+        sync: false
+      - key: TAVILY_API_KEY
+        sync: false
+      - key: ORS_API_KEY
+        sync: false
+      - key: USE_SYSTEM_CERTS
+        value: "0"
+      - key: ALLOWED_ORIGINS
+        sync: false
