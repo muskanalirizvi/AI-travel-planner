@@ -70,7 +70,10 @@ app = FastAPI(title="AI Travel Planner")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=os.getenv("ALLOWED_ORIGINS", "http://localhost:5173").split(","),
+    allow_origins=os.getenv(
+        "ALLOWED_ORIGINS",
+        "http://localhost:5173,https://ai-travel-planner-umber-one.vercel.app",
+    ).split(","),
     allow_methods=["POST"],
     allow_headers=["Content-Type"],
 )
